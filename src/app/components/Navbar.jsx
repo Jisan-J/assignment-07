@@ -30,7 +30,7 @@ const Navbar = async () => {
             </header>
             <div className="flex gap-4">
 
-                <nav className="flex items-center gap-6 p-4 w-full ">
+                <nav className="hidden  md:flex items-center gap-6 p-4 w-full ">
                     {data.map((category) => (
                         <Link
                             key={category.id}
