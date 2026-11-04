@@ -15,7 +15,7 @@ const maxArray = markets.map(item => item.max);
 const lowestPrice = Math.min(...minArray).toLocaleString('bn-BD');
 const highestPrice = Math.max(...maxArray).toLocaleString('bn-BD');
     return (
-       <div className="price-chart-main bg-gray-50 p-6 rounded-2xl border-gray-200 border-2">
+       <div className="price-chart-main-body bg-gray-50 p-6 rounded-2xl border-gray-200 border-2">
                     <h2 className='font-bold text-lg my-5'>দামের সারসংক্ষেপ</h2>
                     <div className="priceStatus-chart *:h-[110px] *:border-gray-200 *:border-2 *:max-w-[400px] grid-cols-1 lg:grid grid-cols-3 gap-4 *:rounded-2xl *:flex *:flex-col *:px-5 *:justify-center place-items-center *:w-full">
                         <div className="lowestPrice">

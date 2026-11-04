@@ -14,9 +14,9 @@ const Navbar = async () => {
         <div className='container mx-auto py-5 w-[80%]'>
             <header className='flex justify-between items-start'>
                 <div className='flex items-center gap-2'>
-                    <img src="/logo-icon.png" alt="logo" className='bg-green-900 h-10 rounded-xl' />
+                     <Link href={'/'}><img src="/logo-icon.png" alt="logo" className='bg-green-900 h-10 rounded-xl' /></Link>
                     <div>
-                        <h2 className='font-bold text-2xl'>বাজার দর</h2>
+                        <Link href={'/'}><h2 className='font-bold text-2xl'>বাজার দর</h2></Link>
                         <span className='text-[14px]'>
                             {date}
                         </span>

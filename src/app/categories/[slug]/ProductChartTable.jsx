@@ -8,7 +8,7 @@ const ProductChartTable = ({ product }) => {
     const avrgBn= avrg.toLocaleString('bn-BD');
 
     return (
-        <tr>
+        <tr className='chart-table-row-details'>
             <td>{product.market}</td>
             <td>{product.division}</td>
             <td>{minBn}</td>
