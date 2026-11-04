@@ -5,7 +5,7 @@ const Products = ({ product }) => {
 
     return (
         <div>
-            <div className="bg-gray-50  h-[150px] rounded-2xl border-2 p-4 flex flex-col justify-between">
+            <div className="bg-gray-50  h-[150px] rounded-2xl border-2 border-gray-300 p-4 flex flex-col justify-between">
                 <div className="flex gap-2">
                     <div className='text-xl bg-gray-200 w-fit p-2 rounded-2xl'>{product.image}</div>
                     <div>
