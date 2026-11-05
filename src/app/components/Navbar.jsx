@@ -24,8 +24,8 @@ const Navbar = async () => {
                     </div>
                 </div>
                 <div className='flex gap-2 items-center'>
-                    <Link href={'/log-in'}><Button>Log In</Button></Link>
-                    <Link href={'/sign-in'}><Button>Sign In</Button></Link>
+                    <Link href={'/sign-in'}><Button className={'bg-green-700 rounded-lg'}>Sign In</Button></Link>
+                    <Link href={'/sign-up'}><Button className={'bg-gray-300 text-black rounded-lg'}>Sign Up</Button></Link>
                 </div>
             </header>
             <div className="flex gap-4">
