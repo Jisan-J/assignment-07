@@ -6,6 +6,7 @@ import { useSession, signOut } from "@/lib/auth-client";
 import Link from "next/link";
 import { Button } from "@heroui/react";
 
+
 const SingBtn = () => {
     const { data: session, isPending } = useSession();
     const [isOpen, setIsOpen] = useState(false);
@@ -17,13 +18,13 @@ const SingBtn = () => {
         return (
             <div className="flex gap-2 items-center">
                 <Link href="/sign-in">
-                    <Button className="bg-green-700 rounded-lg">
+                    <Button className=" bg-transparent text-black rounded-lg">
                         Sign In
                     </Button>
                 </Link>
 
                 <Link href="/sign-up">
-                    <Button className="bg-gray-300 text-black rounded-lg">
+                    <Button className="bg-green-600 shadow shadow-green-700/80 rounded-lg">
                         Sign Up
                     </Button>
                 </Link>

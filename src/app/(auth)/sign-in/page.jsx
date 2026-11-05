@@ -2,6 +2,8 @@
 import { signIn } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
+import { IoLogoGithub } from "react-icons/io";
+import { FcGoogle } from "react-icons/fc";
 
 export default function SignIn() {
     const onSubmit = async (e) => {
@@ -38,7 +40,7 @@ export default function SignIn() {
                 <p className="text-[14px] text-gray-500">বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।</p>
             </div>
             <Form
-                className="flex w-96 mx-auto  flex-col gap-4 container bg-gray-50 h-100 justify-center gap-5 border-2 border-gray-300 p-4 rounded-2xl"
+                className="flex min-w-96 mx-auto  flex-col gap-4 container bg-gray-50 h-100 justify-center max-w-fit gap-5 border-2 border-gray-300 p-4 rounded-2xl"
                 render={(props) => <form {...props} data-custom="foo" />}
                 onSubmit={onSubmit}
             >
@@ -90,8 +92,8 @@ export default function SignIn() {
                     </Button>
                     <p className="text-gray-600 text-[12px] text-center py-4">অথবা</p>
                     <div className="*:bg-gray-50 *:text-black *:font-bold *:text-[12px]">
-                        <Button type="button" onClick={() => handleGoogle()}>Google দিয়ে চালিয়ে যান</Button>
-                        <Button type="button" onClick={() => handleGithub()}>Github দিয়ে চালিয়ে যান</Button>
+                        <Button type="button" onClick={() => handleGoogle()}><FcGoogle /> Google দিয়ে চালিয়ে যান</Button>
+                        <Button type="button" onClick={() => handleGithub()}><IoLogoGithub /> Github দিয়ে চালিয়ে যান</Button>
                     </div>
                     <p className="text-[12px] text-center">
                         অ্যাকাউন্ট নেই?

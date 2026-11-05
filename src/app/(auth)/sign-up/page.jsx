@@ -3,7 +3,8 @@
 import { signIn, signUp } from "@/lib/auth-client";
 import { Button, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
-
+import { FcGoogle } from "react-icons/fc";
+import { IoLogoGithub } from "react-icons/io";
 export default function SignUp() {
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -41,7 +42,7 @@ export default function SignUp() {
                 <p className="text-[14px] text-gray-500">বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন।</p>
             </div>
             <Form
-                className="flex w-96 mx-auto  flex-col gap-4 container bg-gray-50 min-h-100 max-h-fit justify-center gap-5 border-2 border-gray-300 p-4 rounded-2xl"
+                className="flex min-w-96 mx-auto  flex-col gap-4 container bg-gray-50 min-h-100 max-h-fit max-w-fit justify-center gap-5 border-2 border-gray-300 p-5 rounded-2xl"
                 render={(props) => <form {...props} data-custom="foo" />}
                 onSubmit={onSubmit}
             >
@@ -106,9 +107,9 @@ export default function SignUp() {
                     </Button>
                     <p className="text-gray-600 text-[12px] text-center py-4">অথবা</p>
                     <div className="other-sign-btn flex justify-between">
-                        <div className="*:bg-gray-50 *:text-black *:font-bold *:text-[12px]"><Button type="button" onClick={() => handleGoogle()}>Google দিয়ে চালিয়ে যান</Button>
+                        <div className="*:bg-gray-50 *:text-black *:font-bold *:text-[12px]"><Button type="button" onClick={() => handleGoogle()}><FcGoogle /> Google দিয়ে চালিয়ে যান</Button>
                         </div>
-                        <div className="*:bg-gray-50 *:text-black *:font-bold *:text-[12px]"> <Button type="button" onClick={() => handleGithub()}>Github দিয়ে চালিয়ে যান</Button>
+                        <div className="*:bg-gray-50 *:text-black *:font-bold *:text-[12px]"> <Button type="button" onClick={() => handleGithub()}> <IoLogoGithub /> Github দিয়ে চালিয়ে যান</Button>
                         </div>
                     </div>
 

@@ -2,6 +2,7 @@ import { IoCaretUpSharp, IoCaretDownSharp } from "react-icons/io5";
 import ProductPriceChart from './ProductPriceChart';
 import CategoryProductsDesign from "./CategoryProductDesign";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 const page = async ({ params }) => {
     const { slug } = await params
@@ -9,6 +10,8 @@ const page = async ({ params }) => {
     const data = await res.json();
     const productCategory = data.find((item) => item.category === slug);
     const product = data.find((item) => item.slug === slug);
+    if (!productCategory && !product) notFound();
+
     const categoryProducts = data.filter(item => item.category === slug).length;
 
 
