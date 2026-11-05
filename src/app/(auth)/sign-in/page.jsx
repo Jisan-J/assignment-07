@@ -1,20 +1,41 @@
 "use client";
+import { signIn } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
 
 export default function SignIn() {
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
         console.log(data);
+        const { data: edata, error } = await signIn.email({
+            email: data.email,
+            password: data.password,
+            callbackURL: "/",
+        });
+        console.log(edata, error);
     };
+    const handleGoogle = async () => {
+        const { error } = await signIn.social({
+            provider: "google",
+            callbackURL: "/",
 
+        });
+
+    }
+    const handleGithub = async () => {
+        const { error } = await signIn.social({
+            provider: "github",
+            callbackURL: "/",
+
+        })
+    }
     return (
         <div className="py-5">
             <div className="text-center py-5">
-            <h2 className="font-bold text-2xl">সাইন ইন</h2>
-            <p className="text-[14px] text-gray-500">বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।</p>
+                <h2 className="font-bold text-2xl">সাইন ইন</h2>
+                <p className="text-[14px] text-gray-500">বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।</p>
             </div>
             <Form
                 className="flex w-96 mx-auto  flex-col gap-4 container bg-gray-50 h-100 justify-center gap-5 border-2 border-gray-300 p-4 rounded-2xl"
@@ -69,12 +90,12 @@ export default function SignIn() {
                     </Button>
                     <p className="text-gray-600 text-[12px] text-center py-4">অথবা</p>
                     <div className="*:bg-gray-50 *:text-black *:font-bold *:text-[12px]">
-                        <Button>Google দিয়ে চালিয়ে যান</Button>
-                        <Button>Github দিয়ে চালিয়ে যান</Button>
-                    </div> 
+                        <Button type="button" onClick={() => handleGoogle()}>Google দিয়ে চালিয়ে যান</Button>
+                        <Button type="button" onClick={() => handleGithub()}>Github দিয়ে চালিয়ে যান</Button>
+                    </div>
                     <p className="text-[12px] text-center">
-                    অ্যাকাউন্ট নেই? 
-                    <Link href={'/sign-up'} className="text-green-600">সাইন আপ করুন</Link>
+                        অ্যাকাউন্ট নেই?
+                        <Link href={'/sign-up'} className="text-green-600">সাইন আপ করুন</Link>
                     </p>
                 </div>
             </Form>

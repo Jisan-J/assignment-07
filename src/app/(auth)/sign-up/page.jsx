@@ -1,14 +1,38 @@
 "use client";
-import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+
+import { signIn, signUp } from "@/lib/auth-client";
+import { Button, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
 
 export default function SignUp() {
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const data = Object.fromEntries(formData.entries());
-        console.log(data);
+        const { data: edata, error } = await signUp.email({
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            callbackURL: "/",
+        });
     };
+
+    const handleGoogle = async () => {
+        const { error } = await signIn.social({
+            provider: "google",
+            callbackURL: "/",
+
+        });
+
+    }
+    const handleGithub = async () => {
+        const { error } = await signIn.social({
+            provider: "github",
+            callbackURL: "/",
+
+        })
+        
+    }
 
     return (
         <div className="py-5">
@@ -81,14 +105,13 @@ export default function SignUp() {
                         সাইন ইন
                     </Button>
                     <p className="text-gray-600 text-[12px] text-center py-4">অথবা</p>
-                    <div className="*:bg-gray-50 *:text-black *:font-bold *:text-[12px]">
-                        <Button>Google দিয়ে চালিয়ে যান</Button>
-                        <Button>Github দিয়ে চালিয়ে যান</Button>
+                    <div className="other-sign-btn flex justify-between">
+                        <div className="*:bg-gray-50 *:text-black *:font-bold *:text-[12px]"><Button type="button" onClick={() => handleGoogle()}>Google দিয়ে চালিয়ে যান</Button>
+                        </div>
+                        <div className="*:bg-gray-50 *:text-black *:font-bold *:text-[12px]"> <Button type="button" onClick={() => handleGithub()}>Github দিয়ে চালিয়ে যান</Button>
+                        </div>
                     </div>
-                    <p className="text-[12px] text-center">
-                        অ্যাকাউন্ট নেই?
-                        <Link href={'/sign-up'} className="text-green-600">সাইন আপ করুন</Link>
-                    </p>
+
                 </div>
             </Form>
             <p className=" flex justify-center py-5"><Link href={'/'} className="text-gray-600 text-[12px] ">হোমে ফিরে যান</Link></p>
