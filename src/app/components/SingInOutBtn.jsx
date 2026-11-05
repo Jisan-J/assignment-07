@@ -11,7 +11,7 @@ const SingBtn = () => {
     const { data: session, isPending } = useSession();
     const [isOpen, setIsOpen] = useState(false);
     console.log(session);
-    
+
     if (isPending) return <p>Loading...</p>;
 
     if (!session) {
@@ -39,7 +39,7 @@ const SingBtn = () => {
                 className="flex items-center gap-3 cursor-pointer"
             >
                 <img
-                    src={session.user.image || "/default-avatar.png"}
+                    src={session.user?.image || "/default-avatar.png"}
                     alt="Profile"
                     className="w-10 h-10 rounded-full object-cover"
                 />
@@ -66,9 +66,10 @@ const SingBtn = () => {
                         </p>
                     </div>
                     <div className="py-3">
-                        <button className="w-full text-left hover:bg-gray-100 p-2 rounded-lg">
+                        <Link href={'/profile-update'}><button className="w-full text-left hover:bg-gray-100 p-2 rounded-lg">
                             👤 আমার প্রোফাইল
                         </button>
+                        </Link>
                     </div>
 
                     {/* Sign Out */}

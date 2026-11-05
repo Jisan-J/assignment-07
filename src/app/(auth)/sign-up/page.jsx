@@ -112,6 +112,10 @@ export default function SignUp() {
                         <div className="*:bg-gray-50 *:text-black *:font-bold *:text-[12px]"> <Button type="button" onClick={() => handleGithub()}> <IoLogoGithub /> Github দিয়ে চালিয়ে যান</Button>
                         </div>
                     </div>
+                        <p className="text-[12px] text-center">
+                        অ্যাকাউন্ট আছে? 
+                        <Link href={'/sign-in'} className="text-green-600"> সাইন ইন করুন</Link>
+                    </p>
 
                 </div>
             </Form>
